@@ -177,18 +177,18 @@ public class UsuarioProfessor extends javax.swing.JFrame {
     private void displayResult(List resultList) {
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
-        tableHeaders.add("ActorId");
-        tableHeaders.add("FirstName");
-        tableHeaders.add("LastName");
-        tableHeaders.add("LastUpdated");
+        tableHeaders.add("id");
+        tableHeaders.add("nome");
+        tableHeaders.add("cpf");
+        tableHeaders.add("dt_nascimento");
 
         for (Object o : resultList) {
-            Usuario actor = (Usuario) o;
+            Usuario usuario = (Usuario) o;
             Vector<Object> oneRow = new Vector<Object>();
-            oneRow.add(actor.getActorId());
-            oneRow.add(actor.getFirstName());
-            oneRow.add(actor.getLastName());
-            oneRow.add(actor.getLastUpdate());
+            oneRow.add(usuario.getId());
+            oneRow.add(usuario.getNome());
+            oneRow.add(usuario.getCpf());
+            oneRow.add(usuario.getDt_nascimento());
             tableData.add(oneRow);
         }
         resultTable.setModel(new DefaultTableModel(tableData, tableHeaders));
