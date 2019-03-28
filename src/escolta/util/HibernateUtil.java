@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package sakila.util;
+package escolta.util;
 
 
 import org.hibernate.cfg.AnnotationConfiguration;

@@ -8,7 +8,7 @@
  *
  * Created on Jun 17, 2009, 11:43:48 AM
  */
-package sakila.ui;
+package escola.ui;
 
 import java.util.List;
 import java.util.Vector;
@@ -16,17 +16,17 @@ import javax.swing.table.DefaultTableModel;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import sakila.util.HibernateUtil;
-import sakila.entity.Actor;
+import escolta.util.HibernateUtil;
+import escola.entity.Usuario;
 
 /**
  *
  * @author nb
  */
-public class DVDStoreAdmin extends javax.swing.JFrame {
+public class UsuarioProfessor extends javax.swing.JFrame {
 
     /** Creates new form DVDStoreAdmin */
-    public DVDStoreAdmin() {
+    public UsuarioProfessor() {
         initComponents();
     }
     private static String QUERY_BASED_ON_FIRST_NAME = "from Actor a where a.firstName like '";
@@ -60,11 +60,11 @@ public class DVDStoreAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Actor Profile");
+        jLabel1.setText("Professor:");
 
-        jLabel2.setText("First Name");
+        jLabel2.setText("Nome");
 
-        jLabel3.setText("Last Name");
+        jLabel3.setText("CPF");
 
         queryButton.setText("Query");
         queryButton.addActionListener(new java.awt.event.ActionListener() {
@@ -92,8 +92,8 @@ public class DVDStoreAdmin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -107,7 +107,7 @@ public class DVDStoreAdmin extends javax.swing.JFrame {
                                 .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
                                 .addComponent(queryButton)))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +145,7 @@ public class DVDStoreAdmin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new DVDStoreAdmin().setVisible(true);
+                new UsuarioProfessor().setVisible(true);
             }
         });
     }
@@ -183,7 +183,7 @@ public class DVDStoreAdmin extends javax.swing.JFrame {
         tableHeaders.add("LastUpdated");
 
         for (Object o : resultList) {
-            Actor actor = (Actor) o;
+            Usuario actor = (Usuario) o;
             Vector<Object> oneRow = new Vector<Object>();
             oneRow.add(actor.getActorId());
             oneRow.add(actor.getFirstName());
