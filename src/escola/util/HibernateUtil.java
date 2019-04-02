@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package escolta.util;
+package escola.util;
 
 
 import org.hibernate.cfg.AnnotationConfiguration;

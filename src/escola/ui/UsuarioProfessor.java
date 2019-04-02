@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import escolta.util.HibernateUtil;
+import escola.util.HibernateUtil;
 import escola.entity.Usuario;
 
 /**
