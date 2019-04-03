@@ -5,12 +5,15 @@
  */
 package escola.ui;
 
+import escola.controller.LoginController;
+
 /**
  *
  * @author vant3d
  */
 public class Login extends javax.swing.JFrame {
 
+    private LoginController loginController;
     /**
      * Creates new form Login
      */
@@ -44,7 +47,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setText("CPF:");
 
-        cpfField.setText("digitar o CPF");
+        cpfField.setToolTipText("xcvcxc");
         cpfField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cpfFieldActionPerformed(evt);
@@ -53,7 +56,6 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Senha:");
 
-        senhaField.setText("digitar a senha");
         senhaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaFieldActionPerformed(evt);
@@ -107,15 +109,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_senhaFieldActionPerformed
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        
-        if (this.cpfField.getText().equals("agro")
-                && this.senhaField.getText().equals("agro")) {
-            // TODO ajustar o login
-            System.out.println("Logado");
-        } else {
-             System.out.println("Senha Errada");
-        }
-              
+        loginController = new LoginController();
+        loginController.Login(this.cpfField.getText(), this.senhaField.getText());
     }//GEN-LAST:event_btnLoginMouseClicked
 
     /**
