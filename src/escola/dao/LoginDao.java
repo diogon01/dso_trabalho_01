@@ -6,6 +6,7 @@
 package escola.dao;
 
 import com.mysql.jdbc.PreparedStatement;
+import escola.entity.Usuarios;
 import escola.util.HibernateUtil;
 import java.sql.SQLException;
 import java.util.List;
@@ -19,28 +20,36 @@ import org.hibernate.Session;
  */
 public class LoginDao {
 
-    private static String QUERY_BASED_ON_FIRST_NAME = "select * from Login where nome=? and senha=?";
     //Cria variável tipo String com comando de seleção SQL dos campos nome e senha;  
     boolean check = false;
 
-    public boolean acessoLogin(String nome, String senha) {
-        //Método booleano com dois argumentos para autenticar nome e senha do usuário;       
-        String sql = "select * from Login where nome=? and senha=?";
+    public static Usuarios acessoLogin(String cpf, String senha) {
+
+        String sql = "from Usuarios u where u.senha = :senha and u.cpf = :cpf ";
+
+//Método booleano com dois argumentos para autenticar nome e senha do usuário;       
         //Cria variável tipo String com comando de seleção SQL dos campos nome e senha;  
         boolean check = false; //Cria variável boolean abribuindo o valor false;  
+        Usuarios usuario = null;
         try {
-            PreparedStatement ps = Conector.getConexao().prepareStatement(sql);
+
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query q = session.createQuery(hql);
+            Query q = session.createQuery(sql)
+                    .setParameter("senha", senha)
+                    .setParameter("cpf", cpf);
             List resultList = q.list();
+
+            if (resultList.size() > 0) {
+                usuario = (Usuarios) resultList.get(0);
+            }
+
             //displayResult(resultList);
             session.getTransaction().commit();
         } catch (HibernateException he) {
             he.printStackTrace();
         }
-        return check;
-        //Retorna a variável boolean check;  
+        return usuario;
     }
 
 }

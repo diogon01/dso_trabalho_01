@@ -4,8 +4,9 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dso2_trabalho_01</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.connection.url">jdbc:mysql://mysql995.umbler.com:41890/agro_dso2</property>
+    <property name="hibernate.connection.username">agro42</property>
+    <property name="hibernate.connection.password">CTC_2019</property>
+    <mapping resource="escola/entity/Usuarios.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
