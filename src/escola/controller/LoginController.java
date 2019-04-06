@@ -6,7 +6,7 @@
 package escola.controller;
 
 import escola.dao.LoginDao;
-import escola.entity.Usuarios;
+import escola.entity.Usuario;
 import escola.ui.Administrador;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -35,7 +35,7 @@ public class LoginController {
         } else {
              
             loginDao = new LoginDao();
-            Usuarios usuario = loginDao.acessoLogin(cpf, senha);
+            Usuario usuario = loginDao.acessoLogin(cpf, senha);
             
             if(usuario == null){
                     JOptionPane.showMessageDialog(frame,

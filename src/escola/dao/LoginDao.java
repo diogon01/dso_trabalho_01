@@ -6,7 +6,7 @@
 package escola.dao;
 
 import com.mysql.jdbc.PreparedStatement;
-import escola.entity.Usuarios;
+import escola.entity.Usuario;
 import escola.util.HibernateUtil;
 import java.sql.SQLException;
 import java.util.List;
@@ -23,14 +23,14 @@ public class LoginDao {
     //Cria variável tipo String com comando de seleção SQL dos campos nome e senha;  
     boolean check = false;
 
-    public static Usuarios acessoLogin(String cpf, String senha) {
+    public static Usuario acessoLogin(String cpf, String senha) {
 
-        String sql = "from Usuarios u where u.senha = :senha and u.cpf = :cpf ";
+        String sql = "from Usuario u where u.senha = :senha and u.cpf = :cpf ";
 
 //Método booleano com dois argumentos para autenticar nome e senha do usuário;       
         //Cria variável tipo String com comando de seleção SQL dos campos nome e senha;  
         boolean check = false; //Cria variável boolean abribuindo o valor false;  
-        Usuarios usuario = null;
+        Usuario usuario = null;
         try {
 
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -41,7 +41,7 @@ public class LoginDao {
             List resultList = q.list();
 
             if (resultList.size() > 0) {
-                usuario = (Usuarios) resultList.get(0);
+                usuario = (Usuario) resultList.get(0);
             }
 
             //displayResult(resultList);

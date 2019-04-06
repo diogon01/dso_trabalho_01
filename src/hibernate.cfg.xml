@@ -7,6 +7,6 @@
     <property name="hibernate.connection.url">jdbc:mysql://mysql995.umbler.com:41890/agro_dso2</property>
     <property name="hibernate.connection.username">agro42</property>
     <property name="hibernate.connection.password">CTC_2019</property>
-    <mapping resource="escola/entity/Usuarios.hbm.xml"/>
+    <mapping resource="escola/entity/Usuario.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

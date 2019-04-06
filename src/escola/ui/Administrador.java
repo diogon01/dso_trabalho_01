@@ -5,6 +5,9 @@
  */
 package escola.ui;
 
+import javax.security.auth.callback.ConfirmationCallback;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author diogo
@@ -45,7 +48,7 @@ public class Administrador extends javax.swing.JFrame {
         label_endereco = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tx_endereco = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        salvarButton = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
 
         jLabel5.setText("jLabel5");
@@ -95,10 +98,10 @@ public class Administrador extends javax.swing.JFrame {
         tx_endereco.setTabSize(5);
         jScrollPane1.setViewportView(tx_endereco);
 
-        jButton1.setText("Salvar ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        salvarButton.setText("Salvar ");
+        salvarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                salvarButtonActionPerformed(evt);
             }
         });
 
@@ -113,7 +116,7 @@ public class Administrador extends javax.swing.JFrame {
                 .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(painel_cadastrarLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(salvarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(painel_cadastrarLayout.createSequentialGroup()
                         .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(painel_cadastrarLayout.createSequentialGroup()
@@ -176,7 +179,7 @@ public class Administrador extends javax.swing.JFrame {
                             .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(salvarButton)
                 .addGap(26, 26, 26))
         );
 
@@ -203,9 +206,17 @@ public class Administrador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_tipoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        Integer opcao = JOptionPane.showConfirmDialog(null,
+                "Deseja Salvar?",
+                "Ok, para confirmar e cancelar para sair",
+                JOptionPane.OK_OPTION);
+
+        System.out.print(opcao);
+
+
+    }//GEN-LAST:event_salvarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,7 +260,6 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JTextField field_nome;
     private javax.swing.JTextField field_rg;
     private javax.swing.JTextField field_telefone;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -262,6 +272,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel lb_telefone;
     private javax.swing.JLabel lb_tipo;
     private javax.swing.JPanel painel_cadastrar;
+    private javax.swing.JButton salvarButton;
     private javax.swing.JTextArea tx_endereco;
     // End of variables declaration//GEN-END:variables
 }
