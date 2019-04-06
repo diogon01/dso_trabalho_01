@@ -20,7 +20,7 @@ public class AdministradorDao {
 
     // Método 1: este método usado para criar um novo registro de aluno na 
     //tabela do banco de dados
-    public static void criarUsuario(Usuario usuario) {
+    public void criarUsuario(Usuario usuario) {
 
         try {
             session = HibernateUtil.getSessionFactory().openSession();

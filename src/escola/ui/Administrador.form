@@ -79,16 +79,16 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="field_nome" pref="182" max="32767" attributes="0"/>
-                                      <Component id="field_cpf" max="32767" attributes="0"/>
-                                      <Component id="field_rg" max="32767" attributes="0"/>
-                                      <Component id="cb_tipo" max="32767" attributes="0"/>
+                                      <Component id="nomeField" pref="182" max="32767" attributes="0"/>
+                                      <Component id="cpfField" max="32767" attributes="0"/>
+                                      <Component id="rgField" max="32767" attributes="0"/>
+                                      <Component id="tipoComboBox" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lb_senha" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jPasswordField1" pref="178" max="32767" attributes="0"/>
+                                  <Component id="senhaField" pref="178" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -99,9 +99,9 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane1" pref="214" max="32767" attributes="0"/>
-                              <Component id="field_nascimento" max="32767" attributes="0"/>
-                              <Component id="field_telefone" max="32767" attributes="0"/>
+                              <Component id="enderecoPanel" pref="214" max="32767" attributes="0"/>
+                              <Component id="nascimentoField" max="32767" attributes="0"/>
+                              <Component id="telefoneField" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -115,16 +115,16 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lb_nome" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="field_nome" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomeField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="label_nascimento" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="field_nascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nascimentoField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lb_telefone" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="field_telefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="telefoneField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lb_senha" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="senhaField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -132,20 +132,20 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lb_cpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="field_cpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cpfField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="label_rg" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="field_rg" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rgField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lb_tipo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cb_tipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tipoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="enderecoPanel" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="salvarButton" min="-2" max="-2" attributes="0"/>
@@ -160,10 +160,7 @@
             <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="field_nome">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="nomeField">
         </Component>
         <Component class="javax.swing.JLabel" name="lb_senha">
           <Properties>
@@ -175,27 +172,21 @@
             <Property name="text" type="java.lang.String" value="CPF:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="field_cpf">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField2"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="cpfField">
         </Component>
         <Component class="javax.swing.JLabel" name="label_rg">
           <Properties>
             <Property name="text" type="java.lang.String" value="RG:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="field_rg">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField3"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="rgField">
         </Component>
         <Component class="javax.swing.JLabel" name="lb_tipo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tipo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cb_tipo">
+        <Component class="javax.swing.JComboBox" name="tipoComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -207,7 +198,7 @@
             <Property name="selectedIndex" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cb_tipoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tipoComboBoxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="label_nascimento">
@@ -215,27 +206,21 @@
             <Property name="text" type="java.lang.String" value="Nascimento:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="field_nascimento">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField4"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="nascimentoField">
         </Component>
         <Component class="javax.swing.JLabel" name="lb_telefone">
           <Properties>
             <Property name="text" type="java.lang.String" value="Telefone:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="field_telefone">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField5"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="telefoneField">
         </Component>
         <Component class="javax.swing.JLabel" name="label_endereco">
           <Properties>
             <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+        <Container class="javax.swing.JScrollPane" name="enderecoPanel">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
@@ -259,10 +244,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salvarButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-          </Properties>
+        <Component class="javax.swing.JPasswordField" name="senhaField">
         </Component>
       </SubComponents>
     </Container>

@@ -5,6 +5,8 @@
  */
 package escola.ui;
 
+import escola.controller.AdministradorController;
+import escola.entity.Usuario;
 import javax.security.auth.callback.ConfirmationCallback;
 import javax.swing.JOptionPane;
 
@@ -14,6 +16,9 @@ import javax.swing.JOptionPane;
  */
 public class Administrador extends javax.swing.JFrame {
 
+   
+    AdministradorController ac;
+    
     /**
      * Creates new form Administrador
      */
@@ -33,23 +38,23 @@ public class Administrador extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         painel_cadastrar = new javax.swing.JPanel();
         lb_nome = new javax.swing.JLabel();
-        field_nome = new javax.swing.JTextField();
+        nomeField = new javax.swing.JTextField();
         lb_senha = new javax.swing.JLabel();
         lb_cpf = new javax.swing.JLabel();
-        field_cpf = new javax.swing.JTextField();
+        cpfField = new javax.swing.JTextField();
         label_rg = new javax.swing.JLabel();
-        field_rg = new javax.swing.JTextField();
+        rgField = new javax.swing.JTextField();
         lb_tipo = new javax.swing.JLabel();
-        cb_tipo = new javax.swing.JComboBox();
+        tipoComboBox = new javax.swing.JComboBox();
         label_nascimento = new javax.swing.JLabel();
-        field_nascimento = new javax.swing.JTextField();
+        nascimentoField = new javax.swing.JTextField();
         lb_telefone = new javax.swing.JLabel();
-        field_telefone = new javax.swing.JTextField();
+        telefoneField = new javax.swing.JTextField();
         label_endereco = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        enderecoPanel = new javax.swing.JScrollPane();
         tx_endereco = new javax.swing.JTextArea();
         salvarButton = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        senhaField = new javax.swing.JPasswordField();
 
         jLabel5.setText("jLabel5");
 
@@ -61,42 +66,32 @@ public class Administrador extends javax.swing.JFrame {
 
         lb_nome.setText("Nome:");
 
-        field_nome.setText("jTextField1");
-
         lb_senha.setText("Senha:");
 
         lb_cpf.setText("CPF:");
 
-        field_cpf.setText("jTextField2");
-
         label_rg.setText("RG:");
-
-        field_rg.setText("jTextField3");
 
         lb_tipo.setText("Tipo:");
 
-        cb_tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMIN", "PROF", "ALUNO" }));
-        cb_tipo.setSelectedIndex(2);
-        cb_tipo.addActionListener(new java.awt.event.ActionListener() {
+        tipoComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMIN", "PROF", "ALUNO" }));
+        tipoComboBox.setSelectedIndex(2);
+        tipoComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_tipoActionPerformed(evt);
+                tipoComboBoxActionPerformed(evt);
             }
         });
 
         label_nascimento.setText("Nascimento:");
 
-        field_nascimento.setText("jTextField4");
-
         lb_telefone.setText("Telefone:");
-
-        field_telefone.setText("jTextField5");
 
         label_endereco.setText("Endereço:");
 
         tx_endereco.setColumns(20);
         tx_endereco.setRows(5);
         tx_endereco.setTabSize(5);
-        jScrollPane1.setViewportView(tx_endereco);
+        enderecoPanel.setViewportView(tx_endereco);
 
         salvarButton.setText("Salvar ");
         salvarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -104,8 +99,6 @@ public class Administrador extends javax.swing.JFrame {
                 salvarButtonActionPerformed(evt);
             }
         });
-
-        jPasswordField1.setText("jPasswordField1");
 
         javax.swing.GroupLayout painel_cadastrarLayout = new javax.swing.GroupLayout(painel_cadastrar);
         painel_cadastrar.setLayout(painel_cadastrarLayout);
@@ -127,14 +120,14 @@ public class Administrador extends javax.swing.JFrame {
                                     .addComponent(lb_tipo))
                                 .addGap(18, 18, 18)
                                 .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(field_nome, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                    .addComponent(field_cpf)
-                                    .addComponent(field_rg)
-                                    .addComponent(cb_tipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(nomeField, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                                    .addComponent(cpfField)
+                                    .addComponent(rgField)
+                                    .addComponent(tipoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(painel_cadastrarLayout.createSequentialGroup()
                                 .addComponent(lb_senha)
                                 .addGap(18, 18, 18)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)))
+                                .addComponent(senhaField, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)))
                         .addGap(33, 33, 33)
                         .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label_nascimento)
@@ -142,9 +135,9 @@ public class Administrador extends javax.swing.JFrame {
                             .addComponent(label_endereco))
                         .addGap(18, 18, 18)
                         .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addComponent(field_nascimento)
-                            .addComponent(field_telefone))))
+                            .addComponent(enderecoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                            .addComponent(nascimentoField)
+                            .addComponent(telefoneField))))
                 .addGap(36, 36, 36))
         );
         painel_cadastrarLayout.setVerticalGroup(
@@ -153,31 +146,31 @@ public class Administrador extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_nome)
-                    .addComponent(field_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_nascimento)
-                    .addComponent(field_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_telefone)
-                    .addComponent(field_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lb_senha)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(senhaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_endereco)
                     .addGroup(painel_cadastrarLayout.createSequentialGroup()
                         .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lb_cpf)
-                            .addComponent(field_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cpfField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label_rg)
-                            .addComponent(field_rg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rgField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lb_tipo)
-                            .addComponent(cb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1))
+                            .addComponent(tipoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(enderecoPanel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salvarButton)
                 .addGap(26, 26, 26))
@@ -202,9 +195,9 @@ public class Administrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cb_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoActionPerformed
+    private void tipoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cb_tipoActionPerformed
+    }//GEN-LAST:event_tipoComboBoxActionPerformed
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
         // TODO add your handling code here:
@@ -212,6 +205,21 @@ public class Administrador extends javax.swing.JFrame {
                 "Deseja Salvar?",
                 "Ok, para confirmar e cancelar para sair",
                 JOptionPane.OK_OPTION);
+
+        if (opcao == 0) {
+            Usuario usuario = new Usuario(
+                    nomeField.getText(), 
+                    cpfField.getText(), 
+                    rgField.getText(), 
+                    senhaField.getText(), 
+                    tipoComboBox.getSelectedItem().toString(), 
+                    null, telefoneField.getText(),
+                    null);
+            
+            ac = new  AdministradorController();
+            ac.criarUsuario(usuario);
+            
+        }
 
         System.out.print(opcao);
 
@@ -254,15 +262,9 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cb_tipo;
-    private javax.swing.JTextField field_cpf;
-    private javax.swing.JTextField field_nascimento;
-    private javax.swing.JTextField field_nome;
-    private javax.swing.JTextField field_rg;
-    private javax.swing.JTextField field_telefone;
+    private javax.swing.JTextField cpfField;
+    private javax.swing.JScrollPane enderecoPanel;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label_endereco;
     private javax.swing.JLabel label_nascimento;
     private javax.swing.JLabel label_rg;
@@ -271,8 +273,14 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel lb_senha;
     private javax.swing.JLabel lb_telefone;
     private javax.swing.JLabel lb_tipo;
+    private javax.swing.JTextField nascimentoField;
+    private javax.swing.JTextField nomeField;
     private javax.swing.JPanel painel_cadastrar;
+    private javax.swing.JTextField rgField;
     private javax.swing.JButton salvarButton;
+    private javax.swing.JPasswordField senhaField;
+    private javax.swing.JTextField telefoneField;
+    private javax.swing.JComboBox tipoComboBox;
     private javax.swing.JTextArea tx_endereco;
     // End of variables declaration//GEN-END:variables
 }
