@@ -7,6 +7,7 @@ package escola.controller;
 
 import escola.dao.LoginDao;
 import escola.entity.Usuarios;
+import escola.ui.Administrador;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -44,7 +45,7 @@ public class LoginController {
                
             } else {
                if(usuario.getTipo().equals("ADMIN")){
-                   
+                   new Administrador().setVisible(true);
                }
             } 
             
