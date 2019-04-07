@@ -3,10 +3,10 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Apr 7, 2019 5:26:26 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="escola.entity.Usuario" table="usuarios" catalog="agro_dso2">
+    <class name="escola.entity.Usuarios" table="usuarios" catalog="agro_dso2" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity"></generator>
+            <generator class="identity" />
         </id>
         <property name="nome" type="string">
             <column name="nome" length="45" />
@@ -32,5 +32,17 @@
         <property name="dsEndereco" type="string">
             <column name="ds_endereco" length="65535" />
         </property>
+        <set name="alunoLinguas" table="aluno_lingua" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cd_usuario" not-null="true" />
+            </key>
+            <one-to-many class="escola.entity.AlunoLingua" />
+        </set>
+        <set name="professorLinguas" table="professor_lingua" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usuarios_id" not-null="true" />
+            </key>
+            <one-to-many class="escola.entity.ProfessorLingua" />
+        </set>
     </class>
 </hibernate-mapping>
