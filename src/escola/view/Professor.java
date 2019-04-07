@@ -23,10 +23,10 @@ import escola.entity.Usuario;
  *
  * @author nb
  */
-public class UsuarioProfessor extends javax.swing.JFrame {
+public class Professor extends javax.swing.JFrame {
 
     /** Creates new form DVDStoreAdmin */
-    public UsuarioProfessor() {
+    public Professor() {
         initComponents();
     }
     private static String QUERY_BASED_ON_FIRST_NAME = "from Actor a where a.firstName like '";
@@ -145,7 +145,7 @@ public class UsuarioProfessor extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new UsuarioProfessor().setVisible(true);
+                new Professor().setVisible(true);
             }
         });
     }

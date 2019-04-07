@@ -31,7 +31,7 @@ public class Usuario  implements java.io.Serializable {
     public Usuario(String tipo) {
         this.tipo = tipo;
     }
-    public Usuario(String nome, String cpf, String rg, String senha, String tipo, Date dtNascimento, String nrTelefone, String dsEndereco, Set alunoLinguas, Set professorLinguas) {
+    public Usuario(String nome, String cpf, String rg, String senha, String tipo, Date dtNascimento, String nrTelefone, String dsEndereco) {
        this.nome = nome;
        this.cpf = cpf;
        this.rg = rg;
@@ -40,8 +40,6 @@ public class Usuario  implements java.io.Serializable {
        this.dtNascimento = dtNascimento;
        this.nrTelefone = nrTelefone;
        this.dsEndereco = dsEndereco;
-       this.alunoLinguas = alunoLinguas;
-       this.professorLinguas = professorLinguas;
     }
    
     public Integer getId() {
