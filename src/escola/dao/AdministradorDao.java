@@ -20,14 +20,17 @@ public class AdministradorDao {
 
     // Método 1: este método usado para criar um novo registro de aluno na 
     //tabela do banco de dados
-    public void criarUsuario(Usuario usuario) {
+    public boolean criarUsuario(Usuario usuario) {
 
+        boolean salvou = false;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.save(usuario);
 
             session.getTransaction().commit();
+            
+            salvou = true;
 
         } catch (Exception erroSql) {
             if (session.getTransaction() != null) {
@@ -38,9 +41,10 @@ public class AdministradorDao {
 
         } finally {
             if (session != null) {
-                session.close();
-            }
+                session.close();            }
         }
+        
+        return salvou;
 
     }
 }

@@ -16,9 +16,10 @@ public class AdministradorController {
     
     AdministradorDao ad;
     
-    public void criarUsuario(Usuario u){
+    public boolean criarUsuario(Usuario u){
+        
         ad = new AdministradorDao();
-        ad.criarUsuario(u);
+       return ad.criarUsuario(u);
         
     }
     

@@ -8,6 +8,7 @@ package escola.ui;
 import escola.controller.AdministradorController;
 import escola.entity.Usuario;
 import javax.security.auth.callback.ConfirmationCallback;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,10 +16,9 @@ import javax.swing.JOptionPane;
  * @author diogo
  */
 public class Administrador extends javax.swing.JFrame {
-
-   
-    AdministradorController ac;
     
+    AdministradorController ac;
+
     /**
      * Creates new form Administrador
      */
@@ -36,7 +36,11 @@ public class Administrador extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel5 = new javax.swing.JLabel();
-        painel_cadastrar = new javax.swing.JPanel();
+        menuPanel = new javax.swing.JPanel();
+        cadastrarUsuarioButton = new javax.swing.JButton();
+        listarButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        cadastrarUsuarioPanel = new javax.swing.JPanel();
         lb_nome = new javax.swing.JLabel();
         nomeField = new javax.swing.JTextField();
         lb_senha = new javax.swing.JLabel();
@@ -51,18 +55,54 @@ public class Administrador extends javax.swing.JFrame {
         lb_telefone = new javax.swing.JLabel();
         telefoneField = new javax.swing.JTextField();
         label_endereco = new javax.swing.JLabel();
-        enderecoPanel = new javax.swing.JScrollPane();
-        tx_endereco = new javax.swing.JTextArea();
         salvarButton = new javax.swing.JButton();
         senhaField = new javax.swing.JPasswordField();
+        jTextField1 = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        cadastrarTurmaPanel = new javax.swing.JPanel();
+        salvarButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
 
         jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        painel_cadastrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        painel_cadastrar.setToolTipText("Administrador");
-        painel_cadastrar.setName("ssadas"); // NOI18N
+        cadastrarUsuarioButton.setText("Cadastrar usuário");
+
+        listarButton.setText("Listar usuários");
+        listarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
+        menuPanel.setLayout(menuPanelLayout);
+        menuPanelLayout.setHorizontalGroup(
+            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuPanelLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(cadastrarUsuarioButton)
+                .addGap(18, 18, 18)
+                .addComponent(listarButton)
+                .addContainerGap(320, Short.MAX_VALUE))
+        );
+        menuPanelLayout.setVerticalGroup(
+            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cadastrarUsuarioButton)
+                    .addComponent(listarButton))
+                .addGap(28, 28, 28))
+        );
+
+        cadastrarUsuarioPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cadastrarUsuarioPanel.setToolTipText("Administrador");
+        cadastrarUsuarioPanel.setName("ssadas"); // NOI18N
 
         lb_nome.setText("Nome:");
 
@@ -88,11 +128,6 @@ public class Administrador extends javax.swing.JFrame {
 
         label_endereco.setText("Endereço:");
 
-        tx_endereco.setColumns(20);
-        tx_endereco.setRows(5);
-        tx_endereco.setTabSize(5);
-        enderecoPanel.setViewportView(tx_endereco);
-
         salvarButton.setText("Salvar ");
         salvarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,79 +135,164 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout painel_cadastrarLayout = new javax.swing.GroupLayout(painel_cadastrar);
-        painel_cadastrar.setLayout(painel_cadastrarLayout);
-        painel_cadastrarLayout.setHorizontalGroup(
-            painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel_cadastrarLayout.createSequentialGroup()
+        jTextField1.setText("jTextField1");
+
+        jCheckBox1.setText("jCheckBox1");
+
+        javax.swing.GroupLayout cadastrarUsuarioPanelLayout = new javax.swing.GroupLayout(cadastrarUsuarioPanel);
+        cadastrarUsuarioPanel.setLayout(cadastrarUsuarioPanelLayout);
+        cadastrarUsuarioPanelLayout.setHorizontalGroup(
+            cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastrarUsuarioPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(painel_cadastrarLayout.createSequentialGroup()
+                .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(salvarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painel_cadastrarLayout.createSequentialGroup()
-                        .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(painel_cadastrarLayout.createSequentialGroup()
-                                .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastrarUsuarioPanelLayout.createSequentialGroup()
+                        .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
+                                .addComponent(label_nascimento)
+                                .addGap(18, 18, 18)
+                                .addComponent(nascimentoField))
+                            .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
+                                .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lb_nome)
                                     .addComponent(lb_cpf)
-                                    .addComponent(label_rg)
-                                    .addComponent(lb_tipo))
+                                    .addComponent(label_rg))
                                 .addGap(18, 18, 18)
-                                .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(nomeField, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                                     .addComponent(cpfField)
-                                    .addComponent(rgField)
-                                    .addComponent(tipoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(painel_cadastrarLayout.createSequentialGroup()
+                                    .addComponent(rgField)))
+                            .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
                                 .addComponent(lb_senha)
                                 .addGap(18, 18, 18)
                                 .addComponent(senhaField, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)))
-                        .addGap(33, 33, 33)
-                        .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label_nascimento)
-                            .addComponent(lb_telefone)
-                            .addComponent(label_endereco))
-                        .addGap(18, 18, 18)
-                        .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(enderecoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addComponent(nascimentoField)
-                            .addComponent(telefoneField))))
+                        .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
+                                        .addComponent(label_endereco)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField1))
+                                    .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
+                                        .addComponent(lb_telefone)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(telefoneField))))
+                            .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(lb_tipo)
+                                .addGap(18, 18, 18)
+                                .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
+                                        .addComponent(jCheckBox1)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(tipoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(36, 36, 36))
         );
-        painel_cadastrarLayout.setVerticalGroup(
-            painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painel_cadastrarLayout.createSequentialGroup()
+        cadastrarUsuarioPanelLayout.setVerticalGroup(
+            cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_nome)
                     .addComponent(nomeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_nascimento)
-                    .addComponent(nascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_telefone)
-                    .addComponent(telefoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lb_tipo)
+                    .addComponent(tipoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_senha)
-                    .addComponent(senhaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_endereco)
-                    .addGroup(painel_cadastrarLayout.createSequentialGroup()
-                        .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(senhaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox1))
+                .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lb_cpf)
                             .addComponent(cpfField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(18, 18, 18)
+                        .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label_rg)
                             .addComponent(rgField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
+                        .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_nascimento)
+                            .addComponent(nascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
+                    .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(telefoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lb_telefone))
                         .addGap(18, 18, 18)
-                        .addGroup(painel_cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lb_tipo)
-                            .addComponent(tipoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(enderecoPanel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_endereco)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)))
                 .addComponent(salvarButton)
+                .addGap(26, 26, 26))
+        );
+
+        cadastrarTurmaPanel.setVisible(false);
+        cadastrarTurmaPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cadastrarTurmaPanel.setToolTipText("Administrador");
+        cadastrarTurmaPanel.setName("ssadas"); // NOI18N
+
+        salvarButton1.setText("Salvar ");
+        salvarButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Nível:");
+
+        jSlider1.setMajorTickSpacing(1);
+        jSlider1.setMaximum(5);
+        jSlider1.setMinimum(1);
+        jSlider1.setMinorTickSpacing(1);
+        jSlider1.setPaintLabels(true);
+        jSlider1.setPaintTicks(true);
+        jSlider1.setSnapToTicks(true);
+        jSlider1.setValue(1);
+
+        jLabel2.setText("Língua");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglês", "Francês", "Espanhol", "Alemão" }));
+
+        javax.swing.GroupLayout cadastrarTurmaPanelLayout = new javax.swing.GroupLayout(cadastrarTurmaPanel);
+        cadastrarTurmaPanel.setLayout(cadastrarTurmaPanelLayout);
+        cadastrarTurmaPanelLayout.setHorizontalGroup(
+            cadastrarTurmaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastrarTurmaPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(cadastrarTurmaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cadastrarTurmaPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel2)
+                        .addGap(46, 46, 46)
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(cadastrarTurmaPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(salvarButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36))
+        );
+        cadastrarTurmaPanelLayout.setVerticalGroup(
+            cadastrarTurmaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cadastrarTurmaPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(cadastrarTurmaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(salvarButton1)
                 .addGap(26, 26, 26))
         );
 
@@ -181,50 +301,89 @@ public class Administrador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(painel_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cadastrarUsuarioPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(cadastrarTurmaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
-                .addComponent(painel_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cadastrarUsuarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cadastrarTurmaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tipoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoComboBoxActionPerformed
+    private void listarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarButtonActionPerformed
+        this.cadastrarUsuarioPanel.setVisible(false);
+        this.cadastrarTurmaPanel.setVisible(false);
+    }//GEN-LAST:event_listarButtonActionPerformed
+
+    private void salvarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tipoComboBoxActionPerformed
+    }//GEN-LAST:event_salvarButton1ActionPerformed
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
         // TODO add your handling code here:
         Integer opcao = JOptionPane.showConfirmDialog(null,
-                "Deseja Salvar?",
-                "Ok, para confirmar e cancelar para sair",
-                JOptionPane.OK_OPTION);
+            "Deseja Salvar?",
+            "Ok, para confirmar e cancelar para sair",
+            JOptionPane.OK_OPTION);
 
         if (opcao == 0) {
-            Usuario usuario = new Usuario(
-                    nomeField.getText(), 
-                    cpfField.getText(), 
-                    rgField.getText(), 
-                    senhaField.getText(), 
-                    tipoComboBox.getSelectedItem().toString(), 
-                    null, telefoneField.getText(),
-                    null);
+
+            this.criarUsuario();
+        }
+    }//GEN-LAST:event_salvarButtonActionPerformed
+
+    private void tipoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoComboBoxActionPerformed
+    
+    private void criarUsuario() {
+        
+        final JFrame frame = new JFrame("Retorno criar usuario");
+        
+        Usuario usuario = new Usuario(
+                nomeField.getText(),
+                cpfField.getText(),
+                rgField.getText(),
+                senhaField.getText(),
+                tipoComboBox.getSelectedItem().toString(),
+                null, telefoneField.getText(),
+                null);
+        
+        ac = new AdministradorController();
+        
+        if (ac.criarUsuario(usuario)) {
+            JOptionPane.showMessageDialog(frame,
+                    "Salvo corretamente",
+                    "Novo usuario adicionado no sistema",
+                    JOptionPane.PLAIN_MESSAGE);
             
-            ac = new  AdministradorController();
-            ac.criarUsuario(usuario);
+        } else {
+            JOptionPane.showMessageDialog(frame,
+                    "Não foi possível salvar",
+                    "Procure o administrador do sistema",
+                    JOptionPane.ERROR_MESSAGE);
             
         }
-
-        System.out.print(opcao);
-
-
-    }//GEN-LAST:event_salvarButtonActionPerformed
+        
+    }
 
     /**
      * @param args the command line arguments
@@ -262,9 +421,18 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel cadastrarTurmaPanel;
+    private javax.swing.JButton cadastrarUsuarioButton;
+    private javax.swing.JPanel cadastrarUsuarioPanel;
     private javax.swing.JTextField cpfField;
-    private javax.swing.JScrollPane enderecoPanel;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSlider jSlider1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel label_endereco;
     private javax.swing.JLabel label_nascimento;
     private javax.swing.JLabel label_rg;
@@ -273,14 +441,15 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel lb_senha;
     private javax.swing.JLabel lb_telefone;
     private javax.swing.JLabel lb_tipo;
+    private javax.swing.JButton listarButton;
+    private javax.swing.JPanel menuPanel;
     private javax.swing.JTextField nascimentoField;
     private javax.swing.JTextField nomeField;
-    private javax.swing.JPanel painel_cadastrar;
     private javax.swing.JTextField rgField;
     private javax.swing.JButton salvarButton;
+    private javax.swing.JButton salvarButton1;
     private javax.swing.JPasswordField senhaField;
     private javax.swing.JTextField telefoneField;
     private javax.swing.JComboBox tipoComboBox;
-    private javax.swing.JTextArea tx_endereco;
     // End of variables declaration//GEN-END:variables
 }
