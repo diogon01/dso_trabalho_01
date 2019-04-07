@@ -1,5 +1,5 @@
 package escola.entity;
-// Generated Apr 7, 2019 5:26:25 PM by Hibernate Tools 4.3.1
+// Generated Apr 7, 2019 7:04:34 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,8 +12,8 @@ public class ProfessorLingua  implements java.io.Serializable {
 
 
      private Integer id;
-     private Linguas linguas;
-     private Usuarios usuarios;
+     private Lingua lingua;
+     private Usuario usuario;
      private Integer nivel;
      private Set turmas = new HashSet(0);
 
@@ -21,13 +21,13 @@ public class ProfessorLingua  implements java.io.Serializable {
     }
 
 	
-    public ProfessorLingua(Linguas linguas, Usuarios usuarios) {
-        this.linguas = linguas;
-        this.usuarios = usuarios;
+    public ProfessorLingua(Lingua lingua, Usuario usuario) {
+        this.lingua = lingua;
+        this.usuario = usuario;
     }
-    public ProfessorLingua(Linguas linguas, Usuarios usuarios, Integer nivel, Set turmas) {
-       this.linguas = linguas;
-       this.usuarios = usuarios;
+    public ProfessorLingua(Lingua lingua, Usuario usuario, Integer nivel, Set turmas) {
+       this.lingua = lingua;
+       this.usuario = usuario;
        this.nivel = nivel;
        this.turmas = turmas;
     }
@@ -39,19 +39,19 @@ public class ProfessorLingua  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Linguas getLinguas() {
-        return this.linguas;
+    public Lingua getLingua() {
+        return this.lingua;
     }
     
-    public void setLinguas(Linguas linguas) {
-        this.linguas = linguas;
+    public void setLingua(Lingua lingua) {
+        this.lingua = lingua;
     }
-    public Usuarios getUsuarios() {
-        return this.usuarios;
+    public Usuario getUsuario() {
+        return this.usuario;
     }
     
-    public void setUsuarios(Usuarios usuarios) {
-        this.usuarios = usuarios;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
     public Integer getNivel() {
         return this.nivel;

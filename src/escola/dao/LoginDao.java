@@ -22,6 +22,7 @@ public class LoginDao {
 
     //Cria variável tipo String com comando de seleção SQL dos campos nome e senha;  
     boolean check = false;
+    static Session session;
 
     public static Usuario acessoLogin(String cpf, String senha) {
 
@@ -33,7 +34,7 @@ public class LoginDao {
         Usuario usuario = null;
         try {
 
-            Session session = HibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             Query q = session.createQuery(sql)
                     .setParameter("senha", senha)

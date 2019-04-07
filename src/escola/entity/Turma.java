@@ -1,5 +1,5 @@
 package escola.entity;
-// Generated Apr 7, 2019 5:26:25 PM by Hibernate Tools 4.3.1
+// Generated Apr 7, 2019 7:04:34 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,7 +13,7 @@ public class Turma  implements java.io.Serializable {
 
 
      private Integer id;
-     private Linguas linguas;
+     private Lingua lingua;
      private ProfessorLingua professorLingua;
      private Date horario;
      private Integer nivel;
@@ -23,12 +23,12 @@ public class Turma  implements java.io.Serializable {
     }
 
 	
-    public Turma(Linguas linguas, ProfessorLingua professorLingua) {
-        this.linguas = linguas;
+    public Turma(Lingua lingua, ProfessorLingua professorLingua) {
+        this.lingua = lingua;
         this.professorLingua = professorLingua;
     }
-    public Turma(Linguas linguas, ProfessorLingua professorLingua, Date horario, Integer nivel, Set alunosTurmas) {
-       this.linguas = linguas;
+    public Turma(Lingua lingua, ProfessorLingua professorLingua, Date horario, Integer nivel, Set alunosTurmas) {
+       this.lingua = lingua;
        this.professorLingua = professorLingua;
        this.horario = horario;
        this.nivel = nivel;
@@ -42,12 +42,12 @@ public class Turma  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Linguas getLinguas() {
-        return this.linguas;
+    public Lingua getLingua() {
+        return this.lingua;
     }
     
-    public void setLinguas(Linguas linguas) {
-        this.linguas = linguas;
+    public void setLingua(Lingua lingua) {
+        this.lingua = lingua;
     }
     public ProfessorLingua getProfessorLingua() {
         return this.professorLingua;

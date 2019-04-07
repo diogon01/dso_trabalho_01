@@ -7,6 +7,8 @@ package escola.dao;
 
 import escola.entity.Usuario;
 import escola.util.HibernateUtil;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 import org.hibernate.Session;
 
@@ -47,4 +49,33 @@ public class AdministradorDao {
         return salvou;
 
     }
+    
+    // Método 2: este método é usado para exibir os registros da tabela de usuarios 
+    // do banco de dados
+    public static List usuarios() {
+        
+        List ls_usuario = new ArrayList();
+        
+        try{
+            
+            // Inicia a sessao do hibernate
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            
+            ls_usuario = session.createQuery("From Usuario").list();
+            
+            
+        } catch (Exception erroSql) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            erroSql.printStackTrace();
+
+        } finally {
+            if (session != null) {
+                session.close();            }
+        }
+        return ls_usuario;
+    }
+    
 }

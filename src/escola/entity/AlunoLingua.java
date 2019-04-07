@@ -1,5 +1,5 @@
 package escola.entity;
-// Generated Apr 7, 2019 5:26:25 PM by Hibernate Tools 4.3.1
+// Generated Apr 7, 2019 7:04:34 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,8 +12,8 @@ public class AlunoLingua  implements java.io.Serializable {
 
 
      private Integer id;
-     private Linguas linguas;
-     private Usuarios usuarios;
+     private Lingua lingua;
+     private Usuario usuario;
      private int nivel;
      private Set alunosTurmas = new HashSet(0);
 
@@ -21,14 +21,14 @@ public class AlunoLingua  implements java.io.Serializable {
     }
 
 	
-    public AlunoLingua(Linguas linguas, Usuarios usuarios, int nivel) {
-        this.linguas = linguas;
-        this.usuarios = usuarios;
+    public AlunoLingua(Lingua lingua, Usuario usuario, int nivel) {
+        this.lingua = lingua;
+        this.usuario = usuario;
         this.nivel = nivel;
     }
-    public AlunoLingua(Linguas linguas, Usuarios usuarios, int nivel, Set alunosTurmas) {
-       this.linguas = linguas;
-       this.usuarios = usuarios;
+    public AlunoLingua(Lingua lingua, Usuario usuario, int nivel, Set alunosTurmas) {
+       this.lingua = lingua;
+       this.usuario = usuario;
        this.nivel = nivel;
        this.alunosTurmas = alunosTurmas;
     }
@@ -40,19 +40,19 @@ public class AlunoLingua  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Linguas getLinguas() {
-        return this.linguas;
+    public Lingua getLingua() {
+        return this.lingua;
     }
     
-    public void setLinguas(Linguas linguas) {
-        this.linguas = linguas;
+    public void setLingua(Lingua lingua) {
+        this.lingua = lingua;
     }
-    public Usuarios getUsuarios() {
-        return this.usuarios;
+    public Usuario getUsuario() {
+        return this.usuario;
     }
     
-    public void setUsuarios(Usuarios usuarios) {
-        this.usuarios = usuarios;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
     public int getNivel() {
         return this.nivel;

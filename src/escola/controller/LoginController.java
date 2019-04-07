@@ -7,7 +7,7 @@ package escola.controller;
 
 import escola.dao.LoginDao;
 import escola.entity.Usuario;
-import escola.ui.Administrador;
+import escola.view.Administrador;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;

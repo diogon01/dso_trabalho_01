@@ -1,5 +1,5 @@
 package escola.entity;
-// Generated Apr 7, 2019 5:26:25 PM by Hibernate Tools 4.3.1
+// Generated Apr 7, 2019 7:04:34 PM by Hibernate Tools 4.3.1
 
 
 

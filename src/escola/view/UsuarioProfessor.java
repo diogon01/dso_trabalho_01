@@ -8,7 +8,7 @@
  *
  * Created on Jun 17, 2009, 11:43:48 AM
  */
-package escola.ui;
+package escola.view;
 
 import java.util.List;
 import java.util.Vector;
@@ -188,7 +188,7 @@ public class UsuarioProfessor extends javax.swing.JFrame {
             oneRow.add(usuario.getId());
             oneRow.add(usuario.getNome());
             oneRow.add(usuario.getCpf());
-            oneRow.add(usuario.getDt_nascimento());
+            oneRow.add(usuario.getDtNascimento());
             tableData.add(oneRow);
         }
         resultTable.setModel(new DefaultTableModel(tableData, tableHeaders));

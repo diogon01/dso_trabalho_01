@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 7, 2019 5:26:26 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Apr 7, 2019 7:04:34 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="escola.entity.ProfessorLingua" table="professor_lingua" catalog="agro_dso2" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="linguas" class="escola.entity.Linguas" fetch="select">
+        <many-to-one name="lingua" class="escola.entity.Lingua" fetch="select">
             <column name="cd_lingua" not-null="true" />
         </many-to-one>
-        <many-to-one name="usuarios" class="escola.entity.Usuarios" fetch="select">
+        <many-to-one name="usuario" class="escola.entity.Usuario" fetch="select">
             <column name="usuarios_id" not-null="true" />
         </many-to-one>
         <property name="nivel" type="java.lang.Integer">

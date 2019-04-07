@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package escola.ui;
+package escola.view;
 
 import escola.controller.AdministradorController;
 import escola.entity.Usuario;
@@ -39,6 +39,8 @@ public class Administrador extends javax.swing.JFrame {
         menuPanel = new javax.swing.JPanel();
         cadastrarUsuarioButton = new javax.swing.JButton();
         listarButton = new javax.swing.JButton();
+        cadastrarTurmaButton = new javax.swing.JButton();
+        listarTurmasButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         cadastrarUsuarioPanel = new javax.swing.JPanel();
         lb_nome = new javax.swing.JLabel();
@@ -65,6 +67,12 @@ public class Administrador extends javax.swing.JFrame {
         jSlider1 = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
+        listarUsuarioPanel = new javax.swing.JPanel();
+        salvarButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jSlider2 = new javax.swing.JSlider();
+        jLabel4 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox();
 
         jLabel5.setText("jLabel5");
 
@@ -79,6 +87,10 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
+        cadastrarTurmaButton.setText("Cadastrar Turma");
+
+        listarTurmasButton.setText("Listar Turmas");
+
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
         menuPanel.setLayout(menuPanelLayout);
         menuPanelLayout.setHorizontalGroup(
@@ -88,7 +100,11 @@ public class Administrador extends javax.swing.JFrame {
                 .addComponent(cadastrarUsuarioButton)
                 .addGap(18, 18, 18)
                 .addComponent(listarButton)
-                .addContainerGap(320, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(cadastrarTurmaButton)
+                .addGap(18, 18, 18)
+                .addComponent(listarTurmasButton)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +112,9 @@ public class Administrador extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastrarUsuarioButton)
-                    .addComponent(listarButton))
+                    .addComponent(listarButton)
+                    .addComponent(cadastrarTurmaButton)
+                    .addComponent(listarTurmasButton))
                 .addGap(28, 28, 28))
         );
 
@@ -296,6 +314,67 @@ public class Administrador extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
         );
 
+        cadastrarTurmaPanel.setVisible(false);
+        listarUsuarioPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        listarUsuarioPanel.setToolTipText("Administrador");
+        listarUsuarioPanel.setName("ssadas"); // NOI18N
+
+        salvarButton2.setText("Salvar ");
+        salvarButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Nível:");
+
+        jSlider2.setMajorTickSpacing(1);
+        jSlider2.setMaximum(5);
+        jSlider2.setMinimum(1);
+        jSlider2.setMinorTickSpacing(1);
+        jSlider2.setPaintLabels(true);
+        jSlider2.setPaintTicks(true);
+        jSlider2.setSnapToTicks(true);
+        jSlider2.setValue(1);
+
+        jLabel4.setText("Língua");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglês", "Francês", "Espanhol", "Alemão" }));
+
+        javax.swing.GroupLayout listarUsuarioPanelLayout = new javax.swing.GroupLayout(listarUsuarioPanel);
+        listarUsuarioPanel.setLayout(listarUsuarioPanelLayout);
+        listarUsuarioPanelLayout.setHorizontalGroup(
+            listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listarUsuarioPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, listarUsuarioPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel4)
+                        .addGap(46, 46, 46)
+                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(listarUsuarioPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(salvarButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36))
+        );
+        listarUsuarioPanelLayout.setVerticalGroup(
+            listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listarUsuarioPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel4)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(salvarButton2)
+                .addGap(26, 26, 26))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -309,19 +388,22 @@ public class Administrador extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(cadastrarTurmaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cadastrarTurmaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(listarUsuarioPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cadastrarUsuarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cadastrarTurmaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(listarUsuarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -353,6 +435,10 @@ public class Administrador extends javax.swing.JFrame {
     private void tipoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tipoComboBoxActionPerformed
+
+    private void salvarButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_salvarButton2ActionPerformed
     
     private void criarUsuario() {
         
@@ -421,17 +507,22 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cadastrarTurmaButton;
     private javax.swing.JPanel cadastrarTurmaPanel;
     private javax.swing.JButton cadastrarUsuarioButton;
     private javax.swing.JPanel cadastrarUsuarioPanel;
     private javax.swing.JTextField cpfField;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSlider jSlider1;
+    private javax.swing.JSlider jSlider2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel label_endereco;
     private javax.swing.JLabel label_nascimento;
@@ -442,12 +533,15 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel lb_telefone;
     private javax.swing.JLabel lb_tipo;
     private javax.swing.JButton listarButton;
+    private javax.swing.JButton listarTurmasButton;
+    private javax.swing.JPanel listarUsuarioPanel;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JTextField nascimentoField;
     private javax.swing.JTextField nomeField;
     private javax.swing.JTextField rgField;
     private javax.swing.JButton salvarButton;
     private javax.swing.JButton salvarButton1;
+    private javax.swing.JButton salvarButton2;
     private javax.swing.JPasswordField senhaField;
     private javax.swing.JTextField telefoneField;
     private javax.swing.JComboBox tipoComboBox;
