@@ -62,11 +62,13 @@ public class Administrador extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         cadastrarTurmaPanel = new javax.swing.JPanel();
-        salvarButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        salvarTurmaButton = new javax.swing.JButton();
+        turmaNivelLabel = new javax.swing.JLabel();
+        turmaNivelSlider = new javax.swing.JSlider();
+        linguaLabel = new javax.swing.JLabel();
+        linguaComboBox = new javax.swing.JComboBox();
+        professorLabel = new javax.swing.JLabel();
+        professorComboBox = new javax.swing.JComboBox();
         listarUsuarioPanel = new javax.swing.JPanel();
         salvarButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -79,6 +81,11 @@ public class Administrador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         cadastrarUsuarioButton.setText("Cadastrar usuário");
+        cadastrarUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarUsuarioButtonActionPerformed(evt);
+            }
+        });
 
         listarButton.setText("Listar usuários");
         listarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +95,11 @@ public class Administrador extends javax.swing.JFrame {
         });
 
         cadastrarTurmaButton.setText("Cadastrar Turma");
+        cadastrarTurmaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarTurmaButtonActionPerformed(evt);
+            }
+        });
 
         listarTurmasButton.setText("Listar Turmas");
 
@@ -258,63 +270,77 @@ public class Administrador extends javax.swing.JFrame {
         cadastrarTurmaPanel.setToolTipText("Administrador");
         cadastrarTurmaPanel.setName("ssadas"); // NOI18N
 
-        salvarButton1.setText("Salvar ");
-        salvarButton1.addActionListener(new java.awt.event.ActionListener() {
+        salvarTurmaButton.setText("Salvar ");
+        salvarTurmaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salvarButton1ActionPerformed(evt);
+                salvarTurmaButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Nível:");
+        turmaNivelLabel.setText("Nível:");
 
-        jSlider1.setMajorTickSpacing(1);
-        jSlider1.setMaximum(5);
-        jSlider1.setMinimum(1);
-        jSlider1.setMinorTickSpacing(1);
-        jSlider1.setPaintLabels(true);
-        jSlider1.setPaintTicks(true);
-        jSlider1.setSnapToTicks(true);
-        jSlider1.setValue(1);
+        turmaNivelSlider.setMajorTickSpacing(1);
+        turmaNivelSlider.setMaximum(5);
+        turmaNivelSlider.setMinimum(1);
+        turmaNivelSlider.setMinorTickSpacing(1);
+        turmaNivelSlider.setPaintLabels(true);
+        turmaNivelSlider.setPaintTicks(true);
+        turmaNivelSlider.setSnapToTicks(true);
+        turmaNivelSlider.setValue(1);
 
-        jLabel2.setText("Língua");
+        linguaLabel.setText("Língua");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglês", "Francês", "Espanhol", "Alemão" }));
+        linguaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglês", "Francês", "Espanhol", "Alemão" }));
+
+        professorLabel.setText("Professor:");
+
+        professorComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout cadastrarTurmaPanelLayout = new javax.swing.GroupLayout(cadastrarTurmaPanel);
         cadastrarTurmaPanel.setLayout(cadastrarTurmaPanelLayout);
         cadastrarTurmaPanelLayout.setHorizontalGroup(
             cadastrarTurmaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastrarTurmaPanelLayout.createSequentialGroup()
+            .addGroup(cadastrarTurmaPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(cadastrarTurmaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cadastrarTurmaPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel2)
-                        .addGap(46, 46, 46)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(cadastrarTurmaPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(salvarButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(salvarTurmaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cadastrarTurmaPanelLayout.createSequentialGroup()
+                        .addGroup(cadastrarTurmaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cadastrarTurmaPanelLayout.createSequentialGroup()
+                                .addComponent(professorLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(professorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cadastrarTurmaPanelLayout.createSequentialGroup()
+                                .addComponent(turmaNivelLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(turmaNivelSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(linguaLabel)))
+                        .addGap(46, 46, 46)
+                        .addComponent(linguaComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(36, 36, 36))
         );
         cadastrarTurmaPanelLayout.setVerticalGroup(
             cadastrarTurmaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cadastrarTurmaPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(16, 16, 16)
                 .addGroup(cadastrarTurmaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(salvarButton1)
-                .addGap(26, 26, 26))
+                    .addComponent(linguaLabel)
+                    .addComponent(linguaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(turmaNivelSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(turmaNivelLabel))
+                .addGap(18, 18, 18)
+                .addGroup(cadastrarTurmaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(professorLabel)
+                    .addComponent(professorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(salvarTurmaButton)
+                .addContainerGap())
         );
 
-        cadastrarTurmaPanel.setVisible(false);
+        listarUsuarioPanel.setVisible(false);
         listarUsuarioPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         listarUsuarioPanel.setToolTipText("Administrador");
         listarUsuarioPanel.setName("ssadas"); // NOI18N
@@ -402,7 +428,7 @@ public class Administrador extends javax.swing.JFrame {
                 .addComponent(cadastrarUsuarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cadastrarTurmaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(listarUsuarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -415,9 +441,9 @@ public class Administrador extends javax.swing.JFrame {
         this.cadastrarTurmaPanel.setVisible(false);
     }//GEN-LAST:event_listarButtonActionPerformed
 
-    private void salvarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButton1ActionPerformed
+    private void salvarTurmaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarTurmaButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_salvarButton1ActionPerformed
+    }//GEN-LAST:event_salvarTurmaButtonActionPerformed
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
         // TODO add your handling code here:
@@ -439,6 +465,19 @@ public class Administrador extends javax.swing.JFrame {
     private void salvarButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_salvarButton2ActionPerformed
+
+    private void cadastrarTurmaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarTurmaButtonActionPerformed
+       this.cadastrarTurmaPanel.setVisible(true);
+       this.cadastrarUsuarioPanel.setVisible(false);
+       this.listarUsuarioPanel.setVisible(false);
+    }//GEN-LAST:event_cadastrarTurmaButtonActionPerformed
+
+    private void cadastrarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarUsuarioButtonActionPerformed
+        // TODO add your handling code here:
+        this.cadastrarTurmaPanel.setVisible(false);
+       this.cadastrarUsuarioPanel.setVisible(true);
+       this.listarUsuarioPanel.setVisible(false);
+    }//GEN-LAST:event_cadastrarUsuarioButtonActionPerformed
     
     private void criarUsuario() {
         
@@ -513,15 +552,11 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JPanel cadastrarUsuarioPanel;
     private javax.swing.JTextField cpfField;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider jSlider2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel label_endereco;
@@ -532,18 +567,24 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel lb_senha;
     private javax.swing.JLabel lb_telefone;
     private javax.swing.JLabel lb_tipo;
+    private javax.swing.JComboBox linguaComboBox;
+    private javax.swing.JLabel linguaLabel;
     private javax.swing.JButton listarButton;
     private javax.swing.JButton listarTurmasButton;
     private javax.swing.JPanel listarUsuarioPanel;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JTextField nascimentoField;
     private javax.swing.JTextField nomeField;
+    private javax.swing.JComboBox professorComboBox;
+    private javax.swing.JLabel professorLabel;
     private javax.swing.JTextField rgField;
     private javax.swing.JButton salvarButton;
-    private javax.swing.JButton salvarButton1;
     private javax.swing.JButton salvarButton2;
+    private javax.swing.JButton salvarTurmaButton;
     private javax.swing.JPasswordField senhaField;
     private javax.swing.JTextField telefoneField;
     private javax.swing.JComboBox tipoComboBox;
+    private javax.swing.JLabel turmaNivelLabel;
+    private javax.swing.JSlider turmaNivelSlider;
     // End of variables declaration//GEN-END:variables
 }

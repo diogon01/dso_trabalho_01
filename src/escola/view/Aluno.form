@@ -33,11 +33,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="linguaLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jComboBox2" pref="135" max="32767" attributes="0"/>
+                      <Component id="linguaComboBox" pref="135" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" pref="189" max="-2" attributes="0"/>
+                      <Component id="nivelComboBox" min="-2" pref="189" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -63,8 +63,8 @@
                   <Component id="linguaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buscarTurmaButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="linguaComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nivelComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="296" max="32767" attributes="0"/>
           </Group>
@@ -79,7 +79,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JComboBox" name="jComboBox2">
+    <Component class="javax.swing.JComboBox" name="linguaComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -90,6 +90,21 @@
           </StringArray>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="nivelComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="N&#xed;vel 1"/>
+            <StringItem index="1" value="N&#xed;vel 2"/>
+            <StringItem index="2" value="N&#xed;vel 3"/>
+            <StringItem index="3" value="N&#xed;vel 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nivelComboBoxActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="alunoLabel">
       <Properties>
@@ -162,20 +177,5 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="N&#xed;vel 1"/>
-            <StringItem index="1" value="N&#xed;vel 2"/>
-            <StringItem index="2" value="N&#xed;vel 3"/>
-            <StringItem index="3" value="N&#xed;vel 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
-      </Events>
-    </Component>
   </SubComponents>
 </Form>

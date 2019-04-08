@@ -7,7 +7,7 @@ package escola.view;
 
 /**
  *
- * @author diogo
+ * @author Diogo Henrique: Agro42
  */
 public class Aluno extends javax.swing.JFrame {
 
@@ -27,18 +27,25 @@ public class Aluno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox2 = new javax.swing.JComboBox();
+        linguaComboBox = new javax.swing.JComboBox();
+        nivelComboBox = new javax.swing.JComboBox();
         alunoLabel = new javax.swing.JLabel();
         linguaLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         buscarTurmaButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglês", "Francês", "Espanhol", "Alemão" }));
+        linguaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglês", "Francês", "Espanhol", "Alemão" }));
+
+        nivelComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nível 1", "Nível 2", "Nível 3", "Nível 4" }));
+        nivelComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nivelComboBoxActionPerformed(evt);
+            }
+        });
 
         alunoLabel.setText("Aluno:");
 
@@ -66,13 +73,6 @@ public class Aluno extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(resultTable);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nível 1", "Nível 2", "Nível 3", "Nível 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,11 +86,11 @@ public class Aluno extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(linguaLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, 0, 135, Short.MAX_VALUE)
+                        .addComponent(linguaComboBox, 0, 135, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(nivelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(buscarTurmaButton)
                 .addGap(183, 183, 183))
@@ -110,8 +110,8 @@ public class Aluno extends javax.swing.JFrame {
                     .addComponent(linguaLabel)
                     .addComponent(buscarTurmaButton)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(linguaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nivelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(296, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -124,16 +124,16 @@ public class Aluno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarTurmaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarTurmaButtonActionPerformed
-        if (!firstNameTextField.getText().trim().equals("")) {
-            runQueryBasedOnFirstName();
-        } else if (!lastNameTextField.getText().trim().equals("")) {
-            runQueryBasedOnLastName();
+        if (!linguaComboBox.getSelectedItem().equals("")) {
+           
+        } else if (!nivelComboBox.getSelectedItem().equals("")) {
+           
         }
     }//GEN-LAST:event_buscarTurmaButtonActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void nivelComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nivelComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_nivelComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,11 +173,11 @@ public class Aluno extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel alunoLabel;
     private javax.swing.JButton buscarTurmaButton;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox linguaComboBox;
     private javax.swing.JLabel linguaLabel;
+    private javax.swing.JComboBox nivelComboBox;
     private javax.swing.JTable resultTable;
     // End of variables declaration//GEN-END:variables
 }
