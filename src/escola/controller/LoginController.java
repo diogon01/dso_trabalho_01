@@ -16,9 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author vant3d
  */
-public class LoginController {
-    
-    
+public class LoginController { 
     final JFrame frame = new JFrame("JOptionPane Demo");
     LoginDao loginDao;
 
@@ -33,7 +31,6 @@ public class LoginController {
                             JOptionPane.ERROR_MESSAGE);
 
         } else {
-             
             loginDao = new LoginDao();
             Usuario usuario = loginDao.acessoLogin(cpf, senha);
             

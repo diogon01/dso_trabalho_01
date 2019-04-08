@@ -24,7 +24,7 @@ public class AdministradorController {
         
     }
     
-    public List listarusuarios(String nome, String cpf, String tipo){
+    public List listarUsuarios(String nome, String cpf, String tipo){
         
         ad = new AdministradorDao();
        return ad.listarUsuarios(nome,cpf,tipo);

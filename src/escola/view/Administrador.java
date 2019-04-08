@@ -547,7 +547,7 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastrarTurmaButtonActionPerformed
 
     private void cadastrarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarUsuarioButtonActionPerformed
-        // TODO add your handling code here:
+        // Navegação da tela usando os JButton:
         this.cadastrarTurmaPanel.setVisible(false);
         this.cadastrarUsuarioPanel.setVisible(true);
         this.listarUsuarioPanel.setVisible(false);
@@ -559,7 +559,7 @@ public class Administrador extends javax.swing.JFrame {
 
     private void buscarUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarUsuariosButtonActionPerformed
         ac = new AdministradorController();
-        List listaUsuarios = ac.listarusuarios(
+        List listaUsuarios = ac.listarUsuarios(
                 this.buscarNomeField.getText(),
                 this.cpfBuscarField.getText(),
                 this.tipoBuscarComboBox.getSelectedItem().toString());
@@ -571,6 +571,7 @@ public class Administrador extends javax.swing.JFrame {
 
     private void inglesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inglesCheckBoxActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_inglesCheckBoxActionPerformed
 
     private void criarUsuario() {
@@ -585,6 +586,12 @@ public class Administrador extends javax.swing.JFrame {
                 tipoComboBox.getSelectedItem().toString(),
                 null, telefoneField.getText(),
                 null);
+
+        if (tipoComboBox.getSelectedItem().toString().equals("ALUNO")) {
+
+        } else if (tipoComboBox.getSelectedItem().toString().equals("PROF")) {
+
+        }
 
         ac = new AdministradorController();
 
@@ -603,7 +610,7 @@ public class Administrador extends javax.swing.JFrame {
         }
 
     }
-    
+
     private void carregarResultados(List resultList) {
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
