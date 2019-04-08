@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author diogo
  */
 public class Administrador extends javax.swing.JFrame {
-    
+
     AdministradorController ac;
 
     /**
@@ -70,11 +70,15 @@ public class Administrador extends javax.swing.JFrame {
         professorLabel = new javax.swing.JLabel();
         professorComboBox = new javax.swing.JComboBox();
         listarUsuarioPanel = new javax.swing.JPanel();
-        salvarButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jSlider2 = new javax.swing.JSlider();
-        jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultTable = new javax.swing.JTable();
+        buscarNomeLabel = new javax.swing.JLabel();
+        buscarNomeField = new javax.swing.JTextField();
+        cpfLabel = new javax.swing.JLabel();
+        cpfBuscarField = new javax.swing.JTextField();
+        tipoComboBox1 = new javax.swing.JComboBox();
+        lb_tipo1 = new javax.swing.JLabel();
+        buscarUsuariosButton = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
@@ -345,60 +349,87 @@ public class Administrador extends javax.swing.JFrame {
         listarUsuarioPanel.setToolTipText("Administrador");
         listarUsuarioPanel.setName("ssadas"); // NOI18N
 
-        salvarButton2.setText("Salvar ");
-        salvarButton2.addActionListener(new java.awt.event.ActionListener() {
+        resultTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome", "CPF", "Tipo", "Nascimento"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(resultTable);
+
+        buscarNomeLabel.setText("Nome:");
+
+        cpfLabel.setText("CPF:");
+
+        tipoComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMIN", "PROF", "ALUNO" }));
+        tipoComboBox1.setSelectedIndex(2);
+        tipoComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salvarButton2ActionPerformed(evt);
+                tipoComboBox1ActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Nível:");
+        lb_tipo1.setText("Tipo:");
 
-        jSlider2.setMajorTickSpacing(1);
-        jSlider2.setMaximum(5);
-        jSlider2.setMinimum(1);
-        jSlider2.setMinorTickSpacing(1);
-        jSlider2.setPaintLabels(true);
-        jSlider2.setPaintTicks(true);
-        jSlider2.setSnapToTicks(true);
-        jSlider2.setValue(1);
-
-        jLabel4.setText("Língua");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglês", "Francês", "Espanhol", "Alemão" }));
+        buscarUsuariosButton.setText("Buscar Usuários");
 
         javax.swing.GroupLayout listarUsuarioPanelLayout = new javax.swing.GroupLayout(listarUsuarioPanel);
         listarUsuarioPanel.setLayout(listarUsuarioPanelLayout);
         listarUsuarioPanelLayout.setHorizontalGroup(
             listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listarUsuarioPanelLayout.createSequentialGroup()
+            .addGroup(listarUsuarioPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, listarUsuarioPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel4)
-                        .addGap(46, 46, 46)
-                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(listarUsuarioPanelLayout.createSequentialGroup()
+                .addGroup(listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listarUsuarioPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(salvarButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(listarUsuarioPanelLayout.createSequentialGroup()
+                        .addComponent(buscarNomeLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(buscarNomeField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(cpfLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cpfBuscarField, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lb_tipo1)
+                        .addGap(18, 18, 18)
+                        .addComponent(tipoComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listarUsuarioPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buscarUsuariosButton)
+                .addGap(32, 32, 32))
         );
         listarUsuarioPanelLayout.setVerticalGroup(
             listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(listarUsuarioPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listarUsuarioPanelLayout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel4)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(salvarButton2)
-                .addGap(26, 26, 26))
+                    .addComponent(tipoComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lb_tipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpfBuscarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpfLabel)
+                    .addComponent(buscarNomeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarNomeLabel))
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buscarUsuariosButton)
+                .addGap(10, 10, 10))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -430,7 +461,7 @@ public class Administrador extends javax.swing.JFrame {
                 .addComponent(cadastrarTurmaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(listarUsuarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -439,6 +470,7 @@ public class Administrador extends javax.swing.JFrame {
     private void listarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarButtonActionPerformed
         this.cadastrarUsuarioPanel.setVisible(false);
         this.cadastrarTurmaPanel.setVisible(false);
+        this.listarUsuarioPanel.setVisible(true);
     }//GEN-LAST:event_listarButtonActionPerformed
 
     private void salvarTurmaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarTurmaButtonActionPerformed
@@ -448,9 +480,9 @@ public class Administrador extends javax.swing.JFrame {
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
         // TODO add your handling code here:
         Integer opcao = JOptionPane.showConfirmDialog(null,
-            "Deseja Salvar?",
-            "Ok, para confirmar e cancelar para sair",
-            JOptionPane.OK_OPTION);
+                "Deseja Salvar?",
+                "Ok, para confirmar e cancelar para sair",
+                JOptionPane.OK_OPTION);
 
         if (opcao == 0) {
 
@@ -462,27 +494,27 @@ public class Administrador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tipoComboBoxActionPerformed
 
-    private void salvarButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_salvarButton2ActionPerformed
-
     private void cadastrarTurmaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarTurmaButtonActionPerformed
-       this.cadastrarTurmaPanel.setVisible(true);
-       this.cadastrarUsuarioPanel.setVisible(false);
-       this.listarUsuarioPanel.setVisible(false);
+        this.cadastrarTurmaPanel.setVisible(true);
+        this.cadastrarUsuarioPanel.setVisible(false);
+        this.listarUsuarioPanel.setVisible(false);
     }//GEN-LAST:event_cadastrarTurmaButtonActionPerformed
 
     private void cadastrarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarUsuarioButtonActionPerformed
         // TODO add your handling code here:
         this.cadastrarTurmaPanel.setVisible(false);
-       this.cadastrarUsuarioPanel.setVisible(true);
-       this.listarUsuarioPanel.setVisible(false);
+        this.cadastrarUsuarioPanel.setVisible(true);
+        this.listarUsuarioPanel.setVisible(false);
     }//GEN-LAST:event_cadastrarUsuarioButtonActionPerformed
-    
+
+    private void tipoComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoComboBox1ActionPerformed
+
     private void criarUsuario() {
-        
+
         final JFrame frame = new JFrame("Retorno criar usuario");
-        
+
         Usuario usuario = new Usuario(
                 nomeField.getText(),
                 cpfField.getText(),
@@ -491,23 +523,23 @@ public class Administrador extends javax.swing.JFrame {
                 tipoComboBox.getSelectedItem().toString(),
                 null, telefoneField.getText(),
                 null);
-        
+
         ac = new AdministradorController();
-        
+
         if (ac.criarUsuario(usuario)) {
             JOptionPane.showMessageDialog(frame,
                     "Salvo corretamente",
                     "Novo usuario adicionado no sistema",
                     JOptionPane.PLAIN_MESSAGE);
-            
+
         } else {
             JOptionPane.showMessageDialog(frame,
                     "Não foi possível salvar",
                     "Procure o administrador do sistema",
                     JOptionPane.ERROR_MESSAGE);
-            
+
         }
-        
+
     }
 
     /**
@@ -546,18 +578,20 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField buscarNomeField;
+    private javax.swing.JLabel buscarNomeLabel;
+    private javax.swing.JButton buscarUsuariosButton;
     private javax.swing.JButton cadastrarTurmaButton;
     private javax.swing.JPanel cadastrarTurmaPanel;
     private javax.swing.JButton cadastrarUsuarioButton;
     private javax.swing.JPanel cadastrarUsuarioPanel;
+    private javax.swing.JTextField cpfBuscarField;
     private javax.swing.JTextField cpfField;
+    private javax.swing.JLabel cpfLabel;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSlider jSlider2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel label_endereco;
     private javax.swing.JLabel label_nascimento;
@@ -567,6 +601,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel lb_senha;
     private javax.swing.JLabel lb_telefone;
     private javax.swing.JLabel lb_tipo;
+    private javax.swing.JLabel lb_tipo1;
     private javax.swing.JComboBox linguaComboBox;
     private javax.swing.JLabel linguaLabel;
     private javax.swing.JButton listarButton;
@@ -577,13 +612,14 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JTextField nomeField;
     private javax.swing.JComboBox professorComboBox;
     private javax.swing.JLabel professorLabel;
+    private javax.swing.JTable resultTable;
     private javax.swing.JTextField rgField;
     private javax.swing.JButton salvarButton;
-    private javax.swing.JButton salvarButton2;
     private javax.swing.JButton salvarTurmaButton;
     private javax.swing.JPasswordField senhaField;
     private javax.swing.JTextField telefoneField;
     private javax.swing.JComboBox tipoComboBox;
+    private javax.swing.JComboBox tipoComboBox1;
     private javax.swing.JLabel turmaNivelLabel;
     private javax.swing.JSlider turmaNivelSlider;
     // End of variables declaration//GEN-END:variables
