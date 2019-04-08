@@ -31,7 +31,7 @@ public class AdministradorDao {
             session.save(usuario);
 
             session.getTransaction().commit();
-            
+
             salvou = true;
 
         } catch (Exception erroSql) {
@@ -43,28 +43,28 @@ public class AdministradorDao {
 
         } finally {
             if (session != null) {
-                session.close();            }
+                session.close();
+            }
         }
-        
+
         return salvou;
 
     }
-    
+
     // Método 2: este método é usado para exibir os registros da tabela de usuarios 
     // do banco de dados
-    public static List usuarios() {
-        
+    public List listarUsuarios(String nome, String cpf, String tipo) {
+
         List ls_usuario = new ArrayList();
-        
-        try{
-            
+
+        try {
+
             // Inicia a sessao do hibernate
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            
+
             ls_usuario = session.createQuery("From Usuario").list();
-            
-            
+
         } catch (Exception erroSql) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
@@ -73,9 +73,10 @@ public class AdministradorDao {
 
         } finally {
             if (session != null) {
-                session.close();            }
+                session.close();
+            }
         }
         return ls_usuario;
     }
-    
+
 }

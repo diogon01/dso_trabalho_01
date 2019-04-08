@@ -7,6 +7,7 @@ package escola.controller;
 
 import escola.dao.AdministradorDao;
 import escola.entity.Usuario;
+import java.util.List;
 
 /**
  *
@@ -20,6 +21,13 @@ public class AdministradorController {
         
         ad = new AdministradorDao();
        return ad.criarUsuario(u);
+        
+    }
+    
+    public List listarusuarios(String nome, String cpf, String tipo){
+        
+        ad = new AdministradorDao();
+       return ad.listarUsuarios(nome,cpf,tipo);
         
     }
     

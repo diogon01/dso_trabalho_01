@@ -7,9 +7,12 @@ package escola.view;
 
 import escola.controller.AdministradorController;
 import escola.entity.Usuario;
+import java.util.List;
+import java.util.Vector;
 import javax.security.auth.callback.ConfirmationCallback;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -60,7 +63,11 @@ public class Administrador extends javax.swing.JFrame {
         salvarButton = new javax.swing.JButton();
         senhaField = new javax.swing.JPasswordField();
         jTextField1 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jPanel1 = new javax.swing.JPanel();
+        inglesCheckBox = new javax.swing.JCheckBox();
+        francesCheckBox = new javax.swing.JCheckBox();
+        espanholCheckBox = new javax.swing.JCheckBox();
+        alemaoCheckBox = new javax.swing.JCheckBox();
         cadastrarTurmaPanel = new javax.swing.JPanel();
         salvarTurmaButton = new javax.swing.JButton();
         turmaNivelLabel = new javax.swing.JLabel();
@@ -71,12 +78,12 @@ public class Administrador extends javax.swing.JFrame {
         professorComboBox = new javax.swing.JComboBox();
         listarUsuarioPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        resultTable = new javax.swing.JTable();
+        usuariosTable = new javax.swing.JTable();
         buscarNomeLabel = new javax.swing.JLabel();
         buscarNomeField = new javax.swing.JTextField();
         cpfLabel = new javax.swing.JLabel();
         cpfBuscarField = new javax.swing.JTextField();
-        tipoComboBox1 = new javax.swing.JComboBox();
+        tipoBuscarComboBox = new javax.swing.JComboBox();
         lb_tipo1 = new javax.swing.JLabel();
         buscarUsuariosButton = new javax.swing.JButton();
 
@@ -169,9 +176,45 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("jTextField1");
+        inglesCheckBox.setText("Inglês");
+        inglesCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inglesCheckBoxActionPerformed(evt);
+            }
+        });
 
-        jCheckBox1.setText("jCheckBox1");
+        francesCheckBox.setText("Francês");
+
+        espanholCheckBox.setText("Espanhol");
+
+        alemaoCheckBox.setText("Alemão");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(inglesCheckBox)
+                .addGap(18, 18, 18)
+                .addComponent(francesCheckBox)
+                .addGap(18, 18, 18)
+                .addComponent(espanholCheckBox)
+                .addGap(18, 18, 18)
+                .addComponent(alemaoCheckBox)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inglesCheckBox)
+                    .addComponent(francesCheckBox)
+                    .addComponent(espanholCheckBox)
+                    .addComponent(alemaoCheckBox))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout cadastrarUsuarioPanelLayout = new javax.swing.GroupLayout(cadastrarUsuarioPanel);
         cadastrarUsuarioPanel.setLayout(cadastrarUsuarioPanelLayout);
@@ -220,10 +263,8 @@ public class Administrador extends javax.swing.JFrame {
                                 .addComponent(lb_tipo)
                                 .addGap(18, 18, 18)
                                 .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
-                                        .addComponent(jCheckBox1)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(tipoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tipoComboBox, 0, 529, Short.MAX_VALUE))))))
                 .addGap(36, 36, 36))
         );
         cadastrarUsuarioPanelLayout.setVerticalGroup(
@@ -236,12 +277,11 @@ public class Administrador extends javax.swing.JFrame {
                     .addComponent(lb_tipo)
                     .addComponent(tipoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_senha)
-                    .addComponent(senhaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1))
-                .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
+                        .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lb_senha)
+                            .addComponent(senhaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lb_cpf)
@@ -254,8 +294,9 @@ public class Administrador extends javax.swing.JFrame {
                         .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label_nascimento)
                             .addComponent(nascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE))
                     .addGroup(cadastrarUsuarioPanelLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(cadastrarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(telefoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -349,7 +390,7 @@ public class Administrador extends javax.swing.JFrame {
         listarUsuarioPanel.setToolTipText("Administrador");
         listarUsuarioPanel.setName("ssadas"); // NOI18N
 
-        resultTable.setModel(new javax.swing.table.DefaultTableModel(
+        usuariosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -368,23 +409,28 @@ public class Administrador extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(resultTable);
+        jScrollPane1.setViewportView(usuariosTable);
 
         buscarNomeLabel.setText("Nome:");
 
         cpfLabel.setText("CPF:");
 
-        tipoComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMIN", "PROF", "ALUNO" }));
-        tipoComboBox1.setSelectedIndex(2);
-        tipoComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        tipoBuscarComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMIN", "PROF", "ALUNO" }));
+        tipoBuscarComboBox.setSelectedIndex(2);
+        tipoBuscarComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tipoComboBox1ActionPerformed(evt);
+                tipoBuscarComboBoxActionPerformed(evt);
             }
         });
 
         lb_tipo1.setText("Tipo:");
 
         buscarUsuariosButton.setText("Buscar Usuários");
+        buscarUsuariosButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarUsuariosButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout listarUsuarioPanelLayout = new javax.swing.GroupLayout(listarUsuarioPanel);
         listarUsuarioPanel.setLayout(listarUsuarioPanelLayout);
@@ -395,31 +441,31 @@ public class Administrador extends javax.swing.JFrame {
                 .addGroup(listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listarUsuarioPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(listarUsuarioPanelLayout.createSequentialGroup()
+                        .addComponent(buscarUsuariosButton)
+                        .addGap(32, 32, 32))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listarUsuarioPanelLayout.createSequentialGroup()
                         .addComponent(buscarNomeLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(buscarNomeField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
+                        .addComponent(buscarNomeField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cpfLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cpfBuscarField, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lb_tipo1)
-                        .addGap(18, 18, 18)
-                        .addComponent(tipoComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listarUsuarioPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buscarUsuariosButton)
-                .addGap(32, 32, 32))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tipoBuscarComboBox, 0, 330, Short.MAX_VALUE)
+                        .addGap(53, 53, 53))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listarUsuarioPanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())))
         );
         listarUsuarioPanelLayout.setVerticalGroup(
             listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listarUsuarioPanelLayout.createSequentialGroup()
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(listarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(tipoComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipoBuscarComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lb_tipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cpfBuscarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cpfLabel)
@@ -453,7 +499,7 @@ public class Administrador extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cadastrarUsuarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -507,9 +553,25 @@ public class Administrador extends javax.swing.JFrame {
         this.listarUsuarioPanel.setVisible(false);
     }//GEN-LAST:event_cadastrarUsuarioButtonActionPerformed
 
-    private void tipoComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoComboBox1ActionPerformed
+    private void tipoBuscarComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoBuscarComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tipoComboBox1ActionPerformed
+    }//GEN-LAST:event_tipoBuscarComboBoxActionPerformed
+
+    private void buscarUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarUsuariosButtonActionPerformed
+        ac = new AdministradorController();
+        List listaUsuarios = ac.listarusuarios(
+                this.buscarNomeField.getText(),
+                this.cpfBuscarField.getText(),
+                this.tipoBuscarComboBox.getSelectedItem().toString());
+
+        if (listaUsuarios.size() > 0) {
+            this.carregarResultados(listaUsuarios);
+        }
+    }//GEN-LAST:event_buscarUsuariosButtonActionPerformed
+
+    private void inglesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inglesCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inglesCheckBoxActionPerformed
 
     private void criarUsuario() {
 
@@ -540,6 +602,26 @@ public class Administrador extends javax.swing.JFrame {
 
         }
 
+    }
+    
+    private void carregarResultados(List resultList) {
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("nome");
+        tableHeaders.add("cpf");
+        tableHeaders.add("tipo");
+        tableHeaders.add("dt_nascimento");
+
+        for (Object o : resultList) {
+            Usuario usuario = (Usuario) o;
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(usuario.getId());
+            oneRow.add(usuario.getNome());
+            oneRow.add(usuario.getCpf());
+            oneRow.add(usuario.getDtNascimento());
+            tableData.add(oneRow);
+        }
+        usuariosTable.setModel(new DefaultTableModel(tableData, tableHeaders));
     }
 
     /**
@@ -578,6 +660,7 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox alemaoCheckBox;
     private javax.swing.JTextField buscarNomeField;
     private javax.swing.JLabel buscarNomeLabel;
     private javax.swing.JButton buscarUsuariosButton;
@@ -588,8 +671,11 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JTextField cpfBuscarField;
     private javax.swing.JTextField cpfField;
     private javax.swing.JLabel cpfLabel;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox espanholCheckBox;
+    private javax.swing.JCheckBox francesCheckBox;
+    private javax.swing.JCheckBox inglesCheckBox;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
@@ -612,15 +698,15 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JTextField nomeField;
     private javax.swing.JComboBox professorComboBox;
     private javax.swing.JLabel professorLabel;
-    private javax.swing.JTable resultTable;
     private javax.swing.JTextField rgField;
     private javax.swing.JButton salvarButton;
     private javax.swing.JButton salvarTurmaButton;
     private javax.swing.JPasswordField senhaField;
     private javax.swing.JTextField telefoneField;
+    private javax.swing.JComboBox tipoBuscarComboBox;
     private javax.swing.JComboBox tipoComboBox;
-    private javax.swing.JComboBox tipoComboBox1;
     private javax.swing.JLabel turmaNivelLabel;
     private javax.swing.JSlider turmaNivelSlider;
+    private javax.swing.JTable usuariosTable;
     // End of variables declaration//GEN-END:variables
 }
